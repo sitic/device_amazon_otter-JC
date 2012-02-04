@@ -162,6 +162,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	keyguard.no_require_sim=1
 
+# copy all kernel modules under the "modules" directory to system/lib/modules
+PRODUCT_COPY_FILES += $(shell \
+    find device/amazon/otter/modules -name '*.ko' \
+    | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
+    | tr '\n' ' ')
+
 PRODUCT_CHARACTERISTICS := nosdcard tablet
 
 PRODUCT_TAGS += dalvik.gc.type-precise
