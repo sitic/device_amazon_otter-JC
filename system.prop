@@ -1,6 +1,6 @@
 ro.config.disable_hw_accel=true
 ro.sf.hwrotation=270
-persist.sys.usb.config=mass_storage,adb
+persist.sys.usb.config=mtp,adb
 com.ti.omap_enhancement=true
 opencore.asmd=1
 #keyguard.no_require_sim=1

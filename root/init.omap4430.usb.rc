@@ -13,13 +13,13 @@ on property:sys.usb.config=adb
     start adbd
     setprop sys.usb.state $sys.usb.config
 
-on property:sys.usb.config=mass_storage
-    write /sys/class/usb_composite/usb_mass_storage/enable 1
+on property:sys.usb.config=mtp
+    write /sys/class/usb_composite/mtp/enable 1
     start adbd
     setprop sys.usb.state $sys.usb.config
 
-on property:sys.usb.config=mass_storage,adb
-    write /sys/class/usb_composite/usb_mass_storage/enable 1
+on property:sys.usb.config=mtp,adb
+    write /sys/class/usb_composite/mtp/enable 1
     write /sys/class/usb_composite/adb/enable 1
     start adbd
     setprop sys.usb.state $sys.usb.config
@@ -34,8 +34,8 @@ on property:sys.usb.config=rndis,adb
     start adbd
     setprop sys.usb.state $sys.usb.config
 
-on property:sys.usb.config=mass_storage,rndis,adb
-    write /sys/class/usb_composite/usb_mass_storage/enable 1
+on property:sys.usb.config=mtp,rndis,adb
+    write /sys/class/usb_composite/mtp/enable 1
     write /sys/class/usb_composite/rndis/enable 1
     write /sys/class/usb_composite/adb/enable 1
     start adbd
