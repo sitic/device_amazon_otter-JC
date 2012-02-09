@@ -24,4 +24,4 @@ persist.lab126.chargeprotect=1
 #                              0=Power Collapse Suspend, 1=Power Collapse, 2=Apps Sleep, 
 #                              3=Slow Clock and Wait for Interrupt 4=Wait for Interrupt 
 #                              Use 2 for best power savings 
-pm.sleep_mode=2
+#pm.sleep_mode=0
