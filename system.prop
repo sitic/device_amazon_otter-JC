@@ -18,6 +18,7 @@ omap.audio.power=PingPong
 #upgrading the resampler quality
 af.resampler.quality=2
 persist.lab126.chargeprotect=1
+persist.sys.nobootanimation=0
 
 ##Test settings
 # pm.sleep_mode              - The mode used when the phone is off 
