@@ -369,6 +369,15 @@ service console /system/bin/sh
 on property:ro.debuggable=1
     start console
 
+# run user initscripts
+service userinit /system/xbin/busybox run-parts /system/etc/init.d
+    oneshot
+    class late_start
+    user root
+    group root
+on property:cm.filesystem.ready=1
+    start userinit
+
 # adbd is controlled via property triggers in init.<platform>.usb.rc
 service adbd /sbin/adbd
     class core
