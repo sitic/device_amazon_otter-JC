@@ -26,57 +26,11 @@ chmod a+x repo
 ./repo sync -j16
 ```
 
-### Download Kindle Fire device tree
-
-```bash
-git clone git://github.com/JackpotClavin/Kindle-Fire-CM9.git github
-mkdir -p device/amazon/ vendor/amazon/
-cd device/amazon/
-ln -s ../../github/device/otter otter
-cd ../../vendor/amazon/
-ln -s ../../github/vendor/otter otter
-cd ../..
-./vendor/cm/get-prebuilts
-```
-
-### Optional SystemUI
-
-```bash
-rm -rf frameworks/base/packages/SystemUI
-git clone git://github.com/JackpotClavin/SystemUI-For-CM9-Kindle-Fire.git frameworks/base/packages/SystemUI/SystemUI
-```
-
-### Before compiling change the make files to not build hwc
-
-```bash
-mv hardware/ti/omap4xx/hwc/Android.mk hardware/ti/omap4xx/hwc/Android.mk.bak
-```
-
 ### Compile
 
 ```bash
 source build/envsetup.sh
 brunch otter -j$(grep -c processor /proc/cpuinfo)
-```
-
-this should produce a flashable out/target/product/otter/cm_otter-ota-eng.$USER.zip file, if the signing process fails (typical error: Could not create the Java virtual machine.) try to run it again:
-
-```bash
-./device/amazon/otter/releasetools/otter_ota_from_target_files -v \
-           -p out/host/linux-x86 \
-           -k build/target/product/security/testkey \
-           --backup=true \
-           --override_device=auto \
-           out/target/product/otter/obj/PACKAGING/target_files_intermediates/cm_otter-target_files-eng.$USER.zip out/target/product/otter/cm_otter-ota-eng.$USER.zip
-```
-
-### Update git/repo
-
-```bash
-./repo sync -j16
-cd github
-git pull
-cd ..
 ```
 
 ### Clean up repo
@@ -89,9 +43,3 @@ make clean
 ./repo forall -c "git clean -fdx"
 ./repo sync -j16
 ```
-
-
-###Notes for compiling on Mac OS X (by davidnintendo)
-* Xcode 4 may not work. Use Xcode 3 instead. You may need to modify the installer to get it working on Lion, though. Use Google to get instructions. 
-* MacPorts didn't work well for me either. Homebrew worked better. 
-* If your drive is on a non case-sensitive format, you will need to use a disk image to build. Make sure to have enough space on it to compile because everything including intermediate files will be created in the disk image. 40 GB will be enough. Also, if you don't want those 40 GB occupied from the first second, create the image in a dynamic format.
