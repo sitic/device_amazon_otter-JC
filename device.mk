@@ -119,10 +119,6 @@ PRODUCT_COPY_FILES += \
 #	$(TARGET_PREBUILT_WIFI_MODULE):system/lib/modules/bcmdhd.ko
 #endif
 
-PRODUCT_PROPERTY_OVERRIDES := \
-	wifi.interface=tiwlan0 \
-	wifi.supplicant_scan_interval=60
-
 PRODUCT_COPY_FILES += \
 	device/amazon/otter/misc/ilitek_i2c.idc:system/usr/idc/ilitek_i2c.idc
 
