@@ -44,6 +44,7 @@
     <feature name="android.hardware.camera.autofocus" />                   
     <feature name="android.hardware.camera.flash" />             
     <feature name="android.hardware.camera.front" />
+    <feature name="android.hardware.telephony" />
     <feature name="android.hardware.telephony.gsm" />
     <feature name="android.hardware.bluetooth" />
     <!-- remaining features
