@@ -19,3 +19,4 @@ omap.audio.power=PingPong
 af.resampler.quality=2
 persist.lab126.chargeprotect=1
 persist.sys.nobootanimation=0
+pm.sleep_mode=1
